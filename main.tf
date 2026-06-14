@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     # Replace this with your bucket name!
-    bucket         = "terraformbuckettoday"
+    bucket         = "terraformbuckettodaymay31"
     key            = "global/s3/terraform.tfstate"
     region         = "eu-west-2"
   }
