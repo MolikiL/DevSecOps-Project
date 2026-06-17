@@ -1,3 +1,5 @@
+name: AWS Automation Project 1
+
 on:
   push:
     branches:
