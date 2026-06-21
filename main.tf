@@ -15,3 +15,7 @@ resource "aws_s3_bucket" "terraformbuckettodaymay31" {
   bucket = "terraformbuckettodaymay31"
   }
 
+  resource "aws_s3_bucket" "terraformbuckettodaymay3132" {
+  bucket = "terraformbuckettodaymay3132"
+  }
+
