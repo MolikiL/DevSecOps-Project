@@ -1,21 +1,29 @@
 terraform {
   backend "s3" {
-    # Replace this with your bucket name!
-    bucket         = "terraformbuckettodaymay31"
-    key            = "global/s3/terraform.tfstate"
-    region         = "eu-west-2"
+    bucket       = "state-storage-for-devsecops-project"
+    key          = "prod/terraform.tfstate"
+    region       = "eu-west-2"
+    encrypt      = true
+    use_lockfile = true # S3-native locking
   }
 }
 
 provider "aws" {
-  region = "eu-west-2" # London
+  region = "eu-west-2"
 }
 
-resource "aws_s3_bucket" "terraformbuckettodaymay31" {
-  bucket = "terraformbuckettodaymay31"
+resource "aws_s3_bucket" "our-state-file" {
+  bucket = "state-storage-for-devsecops-project"
+}
+
+resource "aws_vpc" "ole_vpc" {
+  cidr_block           = "10.123.0.0/16"
+  enable_dns_hostnames = true
+  enable_dns_support   = true
+
+  tags = {
+    name = "dev"
   }
 
-  resource "aws_s3_bucket" "terraformbuckettodaymay3132" {
-  bucket = "terraformbuckettodaymay3132"
-  }
 
+}
